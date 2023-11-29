@@ -1,0 +1,48 @@
+Trie and Longest Common Subsequence (LCS) Program 
+
+-->This Java program implements a data structure for a Trie (prefix tree) and performs various operations 	using it, including searching for words that match a given pattern and finding the Longest Common Subsequence (LCS) among the matched words.
+
+Functionality Explanation:
+
+1. DataStructureNode and TreeStructure Classes
+DataStructureNode: Represents a node in the Trie data structure. It contains an array of children nodes, each representing a character, and a boolean isEndOfWord flag to indicate the end of a word.
+TreeStructure: Represents the Trie itself. It has a root node and supports the insertion of words into the Trie.
+
+2. insertion_in_tree(String word) Function
+This function inserts a given word into the Trie by traversing the Trie nodes corresponding to the characters in the word. It sets the isEndOfWord flag for the last character node to mark the end of the word.
+
+3. WordsMatched(DataStructureNode node, String pattern, String currentWord, Set<String> matchingWords) Function
+This recursive function is used to find words in the Trie that match a given pattern. It explores different possibilities of character and pattern combinations while considering special cases for '.', '*' characters.
+
+4. LCS_Three(List<String> words) Function
+This function takes a list of three words and finds the Longest Common Subsequence (LCS) among them 	using dynamic programming. It internally calls the LCS_Three(String word1, String word2, String word3) 	function.
+
+5. LCS_Two(String str1, String str2) Function
+This function finds the Longest Common Subsequence (LCS) between two input strings using dynamic programming.
+
+6. Main Function
+The main function reads input from a file, constructs the Trie, searches for matching words based on a pattern, and then finds the LCS among the matched words. The final LCS is written to an output file.
+
+.
+
+Time Complexity Analysis:
+
+Insertion in Tree:- 
+	
+The insertion_in_tree method iterates over each character in the given word and performs constant time operations for each character. Therefore, the time complexity of this method is O(m), here m is the length of the word.
+
+WordsMatched:
+
+The WordsMatched method is a recursive function that traverses the tree structure. In the worst case, it can visit all nodes in the tree. Since the tree can have a maximum of 26 children for each node, the time complexity of this method is O(26^h), where h is the height of the tree.
+
+LCS_Three: 
+
+The LCS_Three method uses dynamic programming to find the longest common subsequence between three strings. It uses three nested loops to iterate over the lengths of the three strings. Therefore, the time complexity of this method is O(n1 * n2 * n3), where n1, n2, and n3 are the lengths of the three strings.
+
+LCS_Two: 
+
+The LCS_Two method is similar to LCS_Three, but it finds the longest common subsequence between two strings. It also uses dynamic programming with two nested loops. Therefore, the time complexity of this method is O(n1 * n2), where n1 and n2 are the lengths of the two strings.
+
+Main: 
+
+The main method contains several operations, such as reading input, inserting words into the tree, finding matching words, finding the longest common subsequence, and writing output. The time complexity of these operations depends on the size of the input and the number of matching words.
